@@ -1,0 +1,12 @@
+name = "memory-mcp-worker"
+main = "src/index.js"
+compatibility_date = "2026-04-09"
+
+[[kv_namespaces]]
+binding = "MEMORY_KV"
+id = "51b25bae4d664647bb1586fc38bd1330"
+preview_id = "34de8c8c0c13472a9ddfecd5b3f3fc43"
+
+[[routes]]
+pattern = "memory-mcp.qdp.qzz.io/*"
+zone_name = "qdp.qzz.io"
