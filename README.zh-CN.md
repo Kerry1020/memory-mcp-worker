@@ -36,3 +36,23 @@ memory-mcp-worker/
 ├── package.json
 └── README.md
 ```
+
+## 工作原理
+
+所有数据存在 Cloudflare KV namespace（绑定名 `MEMORY_KV`）。每条记忆序列化为 JSON，字段：`id`、`title`、`content`、`tags`、`source`、`created_at`、`updated_at`。
+
+MCP 端点遵循标准 JSON-RPC 协议（`/mcp`）。
+
+## 配置
+
+`wrangler.toml` 中必须绑定 KV namespace：
+
+```toml
+[[kv_namespaces]]
+binding = "MEMORY_KV"
+id = "<your-kv-namespace-id>"
+```
+
+## 许可证
+
+本项目基于 GNU General Public License v3.0 发布——详见 [LICENSE](LICENSE)。
