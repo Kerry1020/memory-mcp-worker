@@ -11,7 +11,8 @@ A Cloudflare Worker providing an MCP server for simple KV-backed memory operatio
 | `memory_search` | Full-text search across title, content, tags, and source fields. |
 | `memory_get` | Read a single memory by id. |
 | `memory_delete` | Delete a single memory by id. |
-| `health` | Worker health check. |
+
+`GET /healthz` is the worker health endpoint (not an MCP tool). The MCP toolset is the five above.
 
 ## How It Works
 

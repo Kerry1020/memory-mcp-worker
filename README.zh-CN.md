@@ -11,7 +11,8 @@
 | `memory_search` | 全文搜索标题、内容、标签、来源。 |
 | `memory_get` | 按 id 读取单条记忆。 |
 | `memory_delete` | 按 id 删除单条记忆。 |
-| `health` | 健康检查。 |
+
+`GET /healthz` 是 worker 健康检查端点(不是 MCP 工具)。MCP 工具集是上五个。
 
 ## 本地开发
 
