@@ -4,13 +4,16 @@
 //   GET  /, /healthz   public health / info
 //   POST /mcp          MCP JSON-RPC endpoint (optional bearer auth via MCP_AUTH_TOKEN)
 //   OPTIONS *          CORS preflight
+//
+// Note: the entry module must only have a default export; workerd treats any
+// named export as an additional entrypoint.
 
 import { createMcpServer } from "./mcp.js";
 import { corsHeaders, isAuthorized, json, unauthorized, withHeaders } from "./http.js";
 import { TOOLS, callTool } from "./tools.js";
 
-export const SERVER_NAME = "memory-mcp-worker";
-export const SERVER_VERSION = "0.2.0";
+const SERVER_NAME = "memory-mcp-worker";
+const SERVER_VERSION = "0.2.0";
 
 const CORS = {
   methods: ["GET", "POST", "OPTIONS"],
