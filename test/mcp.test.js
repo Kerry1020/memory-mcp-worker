@@ -159,7 +159,8 @@ describe("JSON-RPC / MCP protocol", () => {
     assert.equal(body.result.structuredContent.error, "missing_kv_binding_MEMORY_KV");
   });
 
-  test("unexpected KV failures are reported as internal_error", async () => {
+  test("unexpected KV failures are reported as internal_error", async (t) => {
+    t.mock.method(console, "error", () => {});
     const env = makeEnv();
     env.MEMORY_KV.list = async () => {
       throw new Error("boom");
