@@ -2,11 +2,21 @@ name = "memory-mcp-worker"
 main = "src/index.js"
 compatibility_date = "2026-04-09"
 
+# KV namespace that stores memories. Create your own with:
+#   npx wrangler kv namespace create MEMORY_KV
+#   npx wrangler kv namespace create MEMORY_KV --preview
+# and replace the ids below (namespace ids are identifiers, not secrets).
 [[kv_namespaces]]
 binding = "MEMORY_KV"
 id = "51b25bae4d664647bb1586fc38bd1330"
 preview_id = "34de8c8c0c13472a9ddfecd5b3f3fc43"
 
+# Custom domain route for the original deployment. Remove or change this block
+# when deploying to your own account (or set `workers_dev = true`).
 [[routes]]
 pattern = "memory-mcp.qdp.qzz.io/*"
 zone_name = "qdp.qzz.io"
+
+# Optional secrets / vars (set with `npx wrangler secret put <NAME>`):
+#   MCP_AUTH_TOKEN     - when set, /mcp requires `Authorization: Bearer <token>`
+#   CORS_ALLOW_ORIGIN  - value for Access-Control-Allow-Origin (default "*")

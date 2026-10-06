@@ -1,0 +1,5 @@
+# Copy to .dev.vars for `npm run dev`. Never commit .dev.vars.
+# Optional: require `Authorization: Bearer <token>` on /mcp. Leave unset to disable auth.
+# MCP_AUTH_TOKEN=change-me
+# Optional: restrict CORS (default "*").
+# CORS_ALLOW_ORIGIN=https://example.com
